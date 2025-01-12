@@ -79,6 +79,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DOUBLY_LINKED_LIST", "..\DO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QUEUE", "..\QUEUE\QUEUE.csproj", "{2173F225-DB40-439E-A7D3-A6E6C414CE06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HASHSET", "..\HASHSET\HASHSET.csproj", "{7C8909E6-C035-4264-ADF8-6F9B9431859E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -237,6 +239,10 @@ Global
 		{2173F225-DB40-439E-A7D3-A6E6C414CE06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2173F225-DB40-439E-A7D3-A6E6C414CE06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2173F225-DB40-439E-A7D3-A6E6C414CE06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C8909E6-C035-4264-ADF8-6F9B9431859E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C8909E6-C035-4264-ADF8-6F9B9431859E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C8909E6-C035-4264-ADF8-6F9B9431859E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C8909E6-C035-4264-ADF8-6F9B9431859E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

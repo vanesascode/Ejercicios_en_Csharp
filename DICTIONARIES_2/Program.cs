@@ -1,4 +1,6 @@
-﻿var myPets = new List<Pet>
+﻿// DICTIONARY
+
+var myPets = new List<Pet>
 {
     new Pet(PetType.Cat, 7),
     new Pet(PetType.Dog, 8),
@@ -7,30 +9,75 @@
     new Pet(PetType.Dog, 12)
 };
 
-
 var Nemo = new Pet(PetType.Cat, 7);
 Console.WriteLine(Nemo);
+Console.WriteLine();
+
+var result = PetWeightAnalyzer.FindMaxWeights(myPets);
+Console.WriteLine(myPets); /////////////////////////////////////////////////
 
 
-var result = Exercise.FindMaxWeights(myPets); 
+/// SORTED DICTIONARY
+
+
+Console.WriteLine("Welcome to your encyclopedia!\n");
+
+SortedDictionary<string, string> definitions = [];
+do
+{
+    Console.WriteLine("\nChoose option ([A]dd, [L]ist): ");
+
+    ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+    if (keyInfo.Key == ConsoleKey.A)
+    {
+        Console.Write("Enter the key: ");
+        string key = Console.ReadLine() ?? string.Empty;
+        Console.Write("Enter the explanation: ");
+        string explanation = Console.ReadLine()
+        ?? string.Empty;
+        definitions[key] = explanation;
+    }
+    else if (keyInfo.Key == ConsoleKey.L)
+    {
+        foreach ((string k, string e) in definitions)
+        {
+            Console.WriteLine($"{k}: {e}");
+        }
+    }
+    else
+    {
+        Console.WriteLine("Do you want to exit? Y or N.");
+        if (Console.ReadKey().Key == ConsoleKey.Y)
+        {
+            break;
+        }
+    }
+}
+while (true);
 
 Console.ReadKey();
 
-public static class Exercise
+////////////////////////////////////////////////////////////////////////////////////
+
+public static class PetWeightAnalyzer
 {
     public static Dictionary<PetType, double> FindMaxWeights(List<Pet> pets)
     {
-        var petsLists =  new Dictionary<PetType, List<Pet>>();
+        //var petsLists = new Dictionary<PetType, List<Pet>>();
 
-        foreach (Pet pet in pets)
-        {
-            if (!petsLists.ContainsKey(pet.PetType))
-            {
-                petsLists[pet.PetType] = new List<Pet>();
-            }
+        //foreach (Pet pet in pets)
+        //{
+        //    if (!petsLists.ContainsKey(pet.PetType))
+        //    {
+        //        petsLists[pet.PetType] = new List<Pet>();
+        //    }
 
-            petsLists[pet.PetType].Add(pet);
-        }
+        //    petsLists[pet.PetType].Add(pet);
+        //}
+
+        var petsLists = pets
+            .GroupBy(pet => pet.PetType)
+            .ToDictionary(g => g.Key, g => g.ToList());
 
         var result = new Dictionary<PetType, double>();
 
@@ -38,7 +85,7 @@ public static class Exercise
         {
             double maxWeight = 0;
 
-           foreach (var pet in petsList.Value)
+            foreach (var pet in petsList.Value)
             {
                 if (pet.Weight > maxWeight)
                 {
